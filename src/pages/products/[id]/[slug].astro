@@ -1,0 +1,25 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import ShowSingleProduct from "../../../components/Products/ShowSingleProduct.vue";
+
+import { getSingleProduct } from "../../../graphql/queries/getSingleProduct";
+
+const { slug } = Astro.params;
+
+const product = await getSingleProduct(slug);
+
+export function getStaticPaths() {
+  return [
+    {params: {id:'one',slug: 'clifford'}},
+    {params: {id:'two',slug: 'rover'}},
+    {params: {id:'three',slug: 'spot'}},
+  ];
+}
+---
+
+<Layout title="Welcome to Single Products">
+  <main>
+    <h1 class="text-3xl text-center font-bold p-6">Single Product page</h1>
+    <div>Good dog, {slug}!</div>
+  </main>
+</Layout>
