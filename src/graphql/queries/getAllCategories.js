@@ -1,17 +1,10 @@
 import { fetchAxios } from "../../lib/axios";
 export async function getAllCategories() {
-  const data = await fetchAxios(`
-  {
-    productCategories(first: 20) {
-      nodes {
-        id
-        databaseId
-        name
-        slug
-      }
+  const data = await fetchAxios(
+    {
+      page: 1 
     }
-  }  
-    `);
+  );
 
   // return data?.productCategories;
 

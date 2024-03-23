@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export async function fetchAxios(query, { variables } = {}) {
+export async function fetchAxios(params) {
   const { PUBLIC_GRAPHQL_URL } = import.meta.env
   let axiosData
 /*
@@ -44,8 +44,10 @@ export async function fetchAxios(query, { variables } = {}) {
     }
   }
 */
-const url = "http://localhost:3030/api/page?id=1";
+const url = "http://localhost:3030/api/page?id=1" ;
+
 //const { data } = await this.$axios('page?id=' + this.$route.params.slug)
 const { data } = await axios(url);
   return data.placeholders.content;  //.data.data
+
 }

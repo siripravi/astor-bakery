@@ -4,16 +4,19 @@ import ShowProductsInCategory from "../../../components/Category/ShowProductsInC
 
 import { getProductsFromCategory } from "../../../graphql/queries/getProductsFromCategory";
 
-const { slug } = Astro.params;
+const { slug ,id} = Astro.params;
+import { getAllCategories } from "../../../graphql/queries/getAllCategories";
+
 
 const products = await getProductsFromCategory(slug);
 
-export function getStaticPaths() {
-  return [
-    {params: {id:'one',slug: 'clifford'}},
-    {params: {id:'two',slug: 'rover'}},
-    {params: {id:'three',slug: 'spot'}},
-  ];
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+  return {
+    paths: categories.extras.elements.categories.map(category => ({ params: { slug: category.slug } })),
+    fallback: false, // Set to 'blocking' for server-side fallback rendering
+   
+  };
 }
 
 ---
