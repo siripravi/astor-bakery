@@ -4,13 +4,13 @@ import ShowSingleProduct from "../../../components/Products/ShowSingleProduct.vu
 
 import { getSingleProduct } from "../../../graphql/queries/getSingleProduct";
 
-const { slug } = Astro.params;
+const { id,slug } = Astro.params;
 
 const product = await getSingleProduct(slug);
 
 export function getStaticPaths() {
   return [
-    {params: {id:'one',slug: 'clifford'}},
+    {params: {id:'one',slug: 'hii'}},
     {params: {id:'two',slug: 'rover'}},
     {params: {id:'three',slug: 'spot'}},
   ];

@@ -12,7 +12,7 @@
             >
               <a
                 class="text-black cursor-pointer hover:underline"
-                :href="`/category/${category.slug}/${category.id}`"
+                :href="`/category/${category.id}/${category.slug}`"
               >
                 <div class="relative">
                   <img v-bind:src="category.imageSrc.source" class="w-full" />
