@@ -2,8 +2,7 @@ import { fetchAxios } from "../../lib/axios";
 export async function getAllCategories() {
   const data = await fetchAxios(
     {
-      pid: 1 ,
-      cid: null
+      id: 1      
     }
   );
 

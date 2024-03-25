@@ -1,10 +1,10 @@
-import axios from "axios"
+import axios from "axios";
 //import { url } from 'astro/runtime';
 export async function fetchAxios(params) {
-  const { PUBLIC_GRAPHQL_URL } = import.meta.env
+  const { PUBLIC_GRAPHQL_URL } = import.meta.env;
   let axiosData;
   //const search = Astro.url.searchParams.get('id') || '';
-/*
+  /*
   let woocommerceSession
   if (localStorage["woocommerce-session"]) {
     woocommerceSession = localStorage["woocommerce-session"]
@@ -40,8 +40,23 @@ export async function fetchAxios(params) {
     }
   }
 */
-const url = "http://localhost:3030/api/page?id=1";// + params.pid + "&id=" + params.cid;
-//const { data } = await this.$axios('page?id=' + this.$route.params.slug)
-const { data } = await axios(url);
+  const url = "http://localhost:3030/api/page"; // + params.pid + "&id=" + params.cid;
+/*
+  axios
+    .post(url, null, {
+      params: params,
+    })
+    .then(function (response) {
+      console.log(response.data);
+      return response.data.placeholders.content;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+*/
+  //const { data } = await this.$axios('page?id=' + this.$route.params.slug)
+  
+const { data } = await axios.get(url,{params: params});
   return data.placeholders.content;  //.data.data
+
 }

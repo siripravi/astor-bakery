@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 <Layout title="Welcome to Category Products">
   <main>
     <h1 class="text-3xl text-center font-bold p-6">Category Products page - {id}</h1>
-     <ShowProductsInCategory products={products} client:load />
+     <ShowProductsInCategory products={products.extras.moduleContent} client:load />
  
   </main>
 </Layout>
