@@ -1,6 +1,5 @@
 <template>
-  <section>
-    {{ allProducts }}
+  <section>   
     <div class="flex flex-wrap items-center">
       <template v-for="product in allProducts.dataProvider">
         <div
@@ -9,7 +8,7 @@
           class="flex flex-col mt-6 sm:w1/2 md:w-1/3 lg:1/4 xl:w-1/4"
         >
           <a :href="'/products/' + product.slug + '/' + product.id">
-           <img v-bind:src="product.images[0].source" class="w-full" />  
+           <img v-bind:src="product.imageSrc.source" class="w-full" />  
            <!-- <img
               id="product-image"
               class="container mx-auto transition duration-700 ease-in-out transform cursor-pointer lg:w-64 xl:w-64 sm:p-4 hover:scale-95"
@@ -19,7 +18,7 @@
           </a>
           <div class="flex justify-center pt-3">
             <p class="text-xl font-bold text-center cursor-pointer">
-              {{ product.name }} Hello
+              {{ product.name }}
             </p>
           </div>
           <div v-if="product.onSale" class="flex justify-center mt-2">
