@@ -1,9 +1,7 @@
 <template>
   <div>
     <div v-if="remoteError">
-      <span class="text-xl text-red-500"
-        >Error fetching cart. Please refresh the page.</span
-      >
+      <span class="text-xl text-red-500">Error fetching cart. Please refresh the page.</span >
     </div>
     <Transition>
       <div v-if="cartLength">
