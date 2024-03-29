@@ -14,8 +14,7 @@
   "dependencies": {
     "@astrojs/preact": "^3.0.0",
     "@astrojs/rss": "^3.0.0",
-    "@astrojs/solid-js": "^2.0.2",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/solid-js": "^2.0.2",   
     "@astrojs/vue": "^4.0.9",
     "@headlessui/vue": "^1.7.19",
     "@nanostores/vue": "^0.7.0",
@@ -23,15 +22,13 @@
     "axios": "^1.6.8",
     "focus-trap": "^7.3.1",
     "nanostores": "^0.7.3",
-    "scroll-lock": "^2.1.5",
-    "tailwindcss": "^3.4.1",
+    "scroll-lock": "^2.1.5",   
     "uid": "^2.0.2",
     "vee-validate": "^4.12.6",
     "vue": "^3.4.21",
     "yup": "^1.4.0"
   },
-  "devDependencies": {
-    "@tailwindcss/forms": "^0.5.3",
+  "devDependencies": {   
     "sass": "^1.58.3"
   }
 }
