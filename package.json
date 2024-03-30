@@ -18,10 +18,10 @@
     "@astrojs/vue": "^4.0.9",
     "@headlessui/vue": "^1.7.19",
     "@nanostores/vue": "^0.7.0",
-    "@popperjs/core": "^2.11.8",
-    "@types/bootstrap": "^5.2.10",
+    "@astrojs/tailwind": "5.1.0",
+    
     "astro": "^4.5.9",
-    "astro-bootstrap": "^0.6.2",
+   
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "focus-trap": "^7.3.1",

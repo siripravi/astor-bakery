@@ -8,14 +8,14 @@ import HtmlBlockList from "../components/Index/LuyaHtmlBlockList.vue";
 import { getAllProducts } from "../graphql/queries/getAllProducts";
 import { getAllCategories } from "../graphql/queries/getAllCategories";
 //const allProducts = await getAllProducts();
-
+import '../styles/global.css';
 const categories = await getAllCategories();
 ---
 
 <Layout title="Index">
   <main>
-   <!-- <Hero /> -->
-   <HomeSlider />
+   <Hero /> 
+   <!-- <HomeSlider /> -->
     <h1 class="text-center text-3xl font-bold p-4">Categories</h1>
  <!--   <ShowAllCategories categories={categories} client:load />  -->
   <!--  <ShowAllProducts allProducts={allProducts} />  -->
