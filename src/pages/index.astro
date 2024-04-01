@@ -1,7 +1,9 @@
 ---
+
 import Layout from "../layouts/Layout.astro";
+
 import Hero from "../components/Index/Hero.vue";
-import HomeSlider from "../components/Index/HomeSlider.astro";
+import HomeSlider from "../components/Index/HomeCarousel.vue";
 import ShowAllProducts from "../components/Products/ShowAllProducts.vue";
 import ShowAllCategories from "../components/Category/ShowAllCategories.vue";
 import HtmlBlockList from "../components/Index/LuyaHtmlBlockList.vue";
@@ -14,8 +16,9 @@ const categories = await getAllCategories();
 
 <Layout title="Index">
   <main>
-   <Hero /> 
-   <!-- <HomeSlider /> -->
+  
+   <!-- <Hero />  -->
+    <HomeSlider client:load/>
     <h1 class="text-center text-3xl font-bold p-4">Categories</h1>
  <!--   <ShowAllCategories categories={categories} client:load />  -->
   <!--  <ShowAllProducts allProducts={allProducts} />  -->
