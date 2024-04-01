@@ -1,9 +1,6 @@
 <template>
-  <div class="container mx-auto">
-    <div v-if="products">
-      <h1 class="h-10 p-6 text-3xl font-bold text-center">
-      </h1>
-      <br />
+  
+    <div v-if="products">         
       <ShowAllProductsCategory :allProducts="products" />
       <div v-if="!products.dataProvider.length" class="mt-10">
         <h2 class="h-10 text-2xl font-bold text-center">
@@ -11,7 +8,7 @@
         </h2>
       </div>
     </div>
-  </div>
+ 
 </template>
 
 <script setup>

@@ -1,49 +1,48 @@
 <template>
-  <section>   
-    <div class="flex flex-wrap items-center">
-      <template v-for="product in allProducts.dataProvider">
-        <div
-          v-if="product.slug"
-          :key="product.id"
-          class="flex flex-col mt-6 sm:w1/2 md:w-1/3 lg:1/4 xl:w-1/4"
-        >
-          <a :href="'/products/' + product.slug + '/' + product.id">
-           <img v-bind:src="product.imageSrc.source" class="w-full" />  
-           <!-- <img
-              id="product-image"
-              class="container mx-auto transition duration-700 ease-in-out transform cursor-pointer lg:w-64 xl:w-64 sm:p-4 hover:scale-95"
-              :alt="product.name"
-              :src="productImage(product)"
-            />-->
-          </a>
-          <div class="flex justify-center pt-3">
-            <p class="text-xl font-bold text-center cursor-pointer">
-              {{ product.name }}
-            </p>
+ 
+  <div v-if="allProducts">
+    <section class="container mx-auto bg-white">
+      <div
+        class="grid gap-2 px-2 pt-2 pb-2 lg:px-0 xl:px-0 md:px-0 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 xs:grid-cols-3"
+      >
+        <template v-for="product in allProducts.dataProvider">
+          <div
+            v-if="product.slug"
+            :key="product.id"
+            class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg"
+          >
+           
+              <a :href="'/products/' + product.slug + '/' + product.id">
+                <div class="relative">
+                  <img v-bind:src="product.imageSrc.source" class="w-full" />
+
+                  <div
+                    class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium"
+                  >
+                    Veg
+                  </div>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-lg font-medium mb-2">{{ product.name }}</h3>
+                  <p class="text-gray-600 text-sm mb-4"></p>
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-lg"
+                      >${{ product.price_from }}</span
+                    >
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                    >
+                      Order Now
+                    </button>
+                  </div>
+                </div>
+              </a>
+          
           </div>
-          <div v-if="product.onSale" class="flex justify-center mt-2">
-            <div class="text-lg text-gray-900 line-through">
-              <span v-if="product.variations">
-                {{ filteredVariantPrice(product.price, "right") }}</span
-              >
-              <span v-else>{{ product.regularPrice }}</span>
-            </div>
-            <div class="ml-4 text-xl text-gray-900">
-              <span v-if="true">{{
-                filteredVariantPrice(product.price_from)
-              }}</span>
-              <span v-else>{{ product.price_from }}</span>
-            </div>
-          </div>
-          <div v-else>
-            <p class="mt-2 text-xl text-center text-gray-900">
-              {{ product.price_from }}
-            </p>
-          </div>
-        </div>
-      </template>
-    </div>
-  </section>
+        </template>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup>
@@ -52,5 +51,7 @@ import { filteredVariantPrice } from "../../utils/functions";
 defineProps(["allProducts"]);
 
 const productImage = (product) =>
-  product.cover_image_id ? product.images.sourceUrl : process.env.placeholderSmallImage;
+  product.cover_image_id
+    ? product.images.sourceUrl
+    : process.env.placeholderSmallImage;
 </script>

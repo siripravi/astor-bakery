@@ -1,5 +1,5 @@
 <template>
-  <h3>List of Categories</h3>
+  <h3></h3>
   <div v-if="block">
     <section class="container mx-auto bg-white">
       <div
