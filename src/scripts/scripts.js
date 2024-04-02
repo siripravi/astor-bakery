@@ -48,7 +48,7 @@
 
 
     /* Details Lightbox - Magnific Popup */
-    $('.popup-with-move-anim').magnificPopup({
+  /*  $('.popup-with-move-anim').magnificPopup({
 		type: 'inline',
 		fixedContentPos: true,
 		fixedBgPos: true,
@@ -59,10 +59,10 @@
 		removalDelay: 300,
 		mainClass: 'my-mfp-slide-bottom'
     });
-    
+   */ 
 
     /* Card Slider - Swiper */
-	var cardSlider = new Swiper('.card-slider', {
+/*	var cardSlider = new Swiper('.card-slider', {
 		autoplay: {
             delay: 4000,
             disableOnInteraction: false
@@ -85,7 +85,7 @@
                 spaceBetween: 40
             }
         }
-    });
+    });  */
 
 
     /* Counter - CountTo */
