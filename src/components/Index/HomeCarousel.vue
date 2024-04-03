@@ -11,12 +11,14 @@
       <swiper-slide><img src="/images/cakebanner2.jpg" /></swiper-slide>
       <swiper-slide><img src="/images/cakebanner3.jpg" /></swiper-slide>
     </swiper>
+  
   </template>
   
-<script>
+<script >
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from 'swiper/modules';
+import { store } from '../../lib/store.js';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 // Import Swiper styles

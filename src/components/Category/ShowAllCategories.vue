@@ -1,5 +1,5 @@
 <template>
-  <h3>List of Categories</h3>
+  <h3>List of Categories:From B: </h3>
   <div v-if="categories">
     <section class="container mx-auto bg-white">
       <div
@@ -8,7 +8,7 @@
         <template v-for="category in categories.extras.elements.categories">
           <div v-if="category.slug" :key="category.id">
             <div
-              class=" max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg"
+              class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg"
             >
               <a
                 class="text-black cursor-pointer hover:underline"
@@ -16,7 +16,7 @@
               >
                 <div class="relative">
                   <img v-bind:src="category.imageSrc.source" class="w-full" />
-                 
+
                   <div
                     class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium"
                   >
@@ -35,7 +35,9 @@
                     <button
                       class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
                     >
-                      Buy Now
+                      <button >
+                        From B: {{ doubleValue }}
+                      </button>
                     </button>
                   </div>
                 </div>
@@ -49,5 +51,11 @@
 </template>
 
 <script setup>
+
+import { store } from "../../lib/store.js";
+import { useCounterStore } from '../../stores/counterStore';
+
+const store2 = useCounterStore();
+const doubleValue = computed(() => store2.doubleCount)
 defineProps(["categories"]);
 </script>

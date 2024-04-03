@@ -1,8 +1,9 @@
 ---
-import Navbar from "./Navbar.astro";
+
 import Footer from "./Footer.astro";
-import Navbar2 from "./Navbar2.astro";
+import Navbar from "./Navbar.astro";
 import { siteConfig } from "../config/siteConfig";
+import CartFlyout from "../components/Cart/CartFlyout.vue";
 
 const { title } = Astro.props;
 ---
@@ -22,110 +23,15 @@ const { title } = Astro.props;
     data-target=".fixed-top"
     class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal"
   >
-    <Navbar2 />
+    <Navbar />
 
     <div class="container p-4 mx-auto">
       <slot />
-      <!-- Details Lightbox -->
-      <!-- Lightbox -->
-      <div
-        id="details-lightbox"
-        class="lightbox-basic zoom-anim-dialog mfp-hide"
-      >
-        <div class="lg:grid lg:grid-cols-12 lg:gap-x-8">
-          <button title="Close (Esc)" type="button" class="mfp-close x-button"
-            >×</button
-          >
-          <div class="lg:col-span-8">
-            <div class="mb-12 text-center lg:mb-0 lg:text-left xl:mr-6">
-              <img
-                class="inline rounded-lg"
-                src="images/details-lightbox.jpg"
-                alt="alternative"
-              />
-            </div>
-          </div>
-          <!-- end of col -->
-          <div class="lg:col-span-4">
-            <h3 class="mb-2">Goals Setting</h3>
-            <hr class="w-11 h-0.5 mt-0.5 mb-4 ml-0 border-none bg-indigo-600" />
-            <p>
-              The app can easily help you track your personal development
-              evolution if you take the time to set it up.
-            </p>
-            <h4 class="mt-7 mb-2.5">User Feedback</h4>
-            <p class="mb-4">
-              This is a great app which can help you save time and make your
-              live easier. And it will help improve your productivity.
-            </p>
-            <ul class="list mb-6 space-y-2">
-              <li class="flex">
-                <i class="fas fa-chevron-right"></i>
-                <div>Splash screen panel</div>
-              </li>
-              <li class="flex">
-                <i class="fas fa-chevron-right"></i>
-                <div>Statistics graph report</div>
-              </li>
-              <li class="flex">
-                <i class="fas fa-chevron-right"></i>
-                <div>Events calendar layout</div>
-              </li>
-              <li class="flex">
-                <i class="fas fa-chevron-right"></i>
-                <div>Location details screen</div>
-              </li>
-              <li class="flex">
-                <i class="fas fa-chevron-right"></i>
-                <div>Onboarding steps interface</div>
-              </li>
-            </ul>
-            <a class="btn-solid-reg mfp-close page-scroll" href="#download"
-              >Download</a
-            >
-            <button class="btn-outline-reg mfp-close as-button" type="button"
-              >Back</button
-            >
-          </div>
-          <!-- end of col -->
-        </div>
-        <!-- end of row -->
-      </div>
-      <!-- end of lightbox-basic -->
-      <!-- end of lightbox -->
-      <!-- end of details lightbox -->
-       <!-- Details 2 -->
-       <div class="py-24">
-        <div class="container px-4 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-12">
-            <div class="lg:col-span-7">
-                <div class="mb-12 lg:mb-0 xl:mr-14">
-                    <img class="inline" src="images/details-2.jpg" alt="alternative" />
-                </div>
-            </div> <!-- end of col -->
-            <div class="lg:col-span-5">
-                <div class="xl:mt-12">
-                    <h2 class="mb-6">Instant results for the marketing department</h2>
-                    <ul class="list mb-7 space-y-2">
-                        <li class="flex">
-                            <i class="fas fa-chevron-right"></i>
-                            <div>Features that will help you and your marketers</div>
-                        </li>
-                        <li class="flex">
-                            <i class="fas fa-chevron-right"></i>
-                            <div>Smooth learning curve due to the knowledge base</div>
-                        </li>
-                        <li class="flex">
-                            <i class="fas fa-chevron-right"></i>
-                            <div>Ready out-of-the-box with minor setup settings</div>
-                        </li>
-                    </ul>
-                    <a class="btn-solid-reg popup-with-move-anim mr-1.5" href="#details-lightbox">Lightbox</a>
-                    <a class="btn-outline-reg" href="article.html">Details</a>
-                </div>
-            </div> <!-- end of col -->
-        </div> <!-- end of container -->
-    </div>
-    <!-- end of details 2 -->
+
+      <!-- Details 2 -->
+     
+      <!-- end of details 2 -->
+    
       <Footer />
       <!--  <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
       <script src="../scripts/scripts.js"></script>
@@ -133,17 +39,97 @@ const { title } = Astro.props;
       <script
         src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
         type="text/javascript"></script>
-      <script src="../scripts/jquery.easing.min.js"></script>
-      <!-- jQuery Easing for smooth scrolling between anchors -->
+      <script src="//unpkg.com/alpinejs" defer></script>
+      <!--  <script src="../scripts/jquery.easing.min.js"></script>
+    
       <script src="../scripts/swiper.min.js"></script>
-      <!-- Swiper for image and text sliders -->
+    
       <script src="../scripts/jquery.magnific-popup.js"></script>
-      <!-- Magnific Popup for lightboxes -->
+    
       <script src="../scripts/scripts.js"></script>
-      <!-- Custom scripts -->
+       -->
     </div>
+    <CartFlyout client:load />
   </body>
+  </html>
   <style is:global>
+    	:root {
+		--font-family: system-ui, sans-serif;
+		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+		--font-size-xl: clamp(2rem, 1.75vw + 1.35rem, 2.75rem);
+
+		--color-text: hsl(12, 5%, 4%);
+		--color-bg: hsl(17, 20%, 97%);
+		--color-bg-2: hsl(17, 20%, 94%);
+		--color-bg-3: hsl(17, 20%, 88%);
+		--astro-blue: #4f39fa;
+		--astro-pink: #da62c4;
+
+		--content-max-width: 90ch;
+		--nav-height: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+	}
+
+	h1 {
+		font-size: var(--font-size-xl);
+	}
+
+	button {
+		border: none;
+		color: var(--astro-blue);
+		border: 2px solid var(--astro-blue);
+		transition:
+			color 0.2s,
+			background-color 0.2s;
+		background-color: transparent;
+		padding: 0.4rem 0.8rem;
+		border-radius: 0.4rem;
+		font-family: var(--font-family);
+		font-size: var(--font-size-base);
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: var(--astro-blue);
+		color: white;
+	}
+</style>
+
+<style>
+  html {
+		font-family: var(--font-family);
+		font-size: var(--font-size-base);
+		color: var(--color-text);
+		background-color: var(--color-bg);
+	}
+
+	body {
+		margin: 0;
+	}
+
+	header {
+		background: var(--color-bg-2);
+	}
+
+	nav {
+		max-width: var(--content-max-width);
+		height: var(--nav-height);
+		margin: auto;
+		padding-inline: 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.nav-header,
+	.nav-header:visited {
+		font-size: var(--font-size-base);
+		font-weight: bold;
+		color: inherit;
+		text-decoration: none;
+	}
+	
     .row > * {
       width: auto;
     }
@@ -211,4 +197,4 @@ const { title } = Astro.props;
       /*Set to match the Tailwind colour you want the active one to be */
     }
   </style>
-</html>
+

@@ -1,5 +1,4 @@
 ---
-
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/Index/Hero.vue";
@@ -11,22 +10,60 @@ import { getAllProducts } from "../graphql/queries/getAllProducts";
 import { getAllCategories } from "../graphql/queries/getAllCategories";
 //const allProducts = await getAllProducts();
 
-import '../styles/styles.css';
+//import "../styles/styles.css";
 const categories = await getAllCategories();
+import FigureDescription from "../components/FigureDesctiption.astro";
+import type { CartItemDisplayInfo } from '../stores/cartStore';
+import AddToCartForm from '../components/Cart/AddToCartForm.vue';
+const item: CartItemDisplayInfo = {
+  id: "astronaut-figurine",
+  name: "Astronaut Figurine",
+  imageSrc: "/images/chococake.jpg",
+};
 ---
 
 <Layout title="Index">
   <main>
-  
-   <!-- <Hero />  -->
-    <HomeSlider client:load/>
+    <!-- <Hero />  -->
+    <HomeSlider client:load />
     <h1 class="text-center text-3xl font-bold p-4">Categories</h1>
- <!--   <ShowAllCategories categories={categories} client:load />  -->
-  <!--  <ShowAllProducts allProducts={allProducts} />  -->
-  <HtmlBlockList client:load />
-  <section id="banner">
-    <h2>Up to <span>30% Off</span> on All Cakes &amp; Decoratives</h2>
-    <button class="button-normal">EXPLORE MORE</button>
-  </section>
+    <!--   <ShowAllCategories categories={categories} client:load />  -->
+    <!--  <ShowAllProducts allProducts={allProducts} />  -->
+    <HtmlBlockList client:load />
+    <div class="product-layout">
+			<div>
+				<FigureDescription />
+				<AddToCartForm item={item} client:load>
+					<button type="submit">Add to cart</button>
+				</AddToCartForm>
+			</div>
+			<img src={item.imageSrc} alt={item.name} />
+		</div>
+    <section id="banner">
+      <h2>Up to <span>30% Off</span> on All Cakes &amp; Decoratives</h2>
+      <button class="button-normal">EXPLORE MORE</button>
+    </section>
   </main>
 </Layout>
+<style>
+	main {
+		margin: auto;
+		padding: 1em;
+		max-width: var(--content-max-width);
+	}
+
+	.product-layout {
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(20rem, max-content));
+	}
+
+	.product-layout img {
+		width: 100%;
+		max-width: 26rem;
+	}
+
+	button[type='submit'] {
+		margin-block-start: 1rem;
+	}
+</style>
