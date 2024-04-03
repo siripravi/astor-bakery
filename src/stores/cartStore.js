@@ -13,4 +13,3 @@ export function addProductToCart({ id, name, imageSrc }) {
     cartItems.setKey(id, { id, name, imageSrc, quantity: 1 })
   }
 }
-
