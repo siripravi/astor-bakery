@@ -4,33 +4,33 @@ import ShowSingleProduct from "../../../components/Products/ShowSingleProduct.vu
 
 import { getSingleProduct } from "../../../graphql/queries/getSingleProduct";
 
-const { id,slug } = Astro.params;
+export const prerender = false;
 const productData = await getSingleProduct(slug);
 
-
 export async function getStaticPaths() {
-  const paths =  [
-    {params: {id:'chocolate-cake',slug: '28'}},
-    {params: {id:'butter-cookies',slug: '29'}},
-    {params: {id:'three',slug: 'spot'}},
-  ];
-
- // const paths = productData.extras.moduleContent.product.map(item => ({ params: { id: item.id , slug:item.slug} }));
+ const paths =  [
+   // {params: {id:'vanilla-cake',slug: '30'}},
+   // {params: {id:'butter-cookies',slug: '29'}},
+   // {params: {id:'three',slug: 'spot'}},
+  ]; 
+  //const productData = await getSingleProduct(slug);
+//  const paths = productData.extras.moduleContent.product.map(item => ({ params: { id: item.id , slug:item.slug} }));
 
   return  paths;
 }
+const { id,slug } = Astro.params;
 ---
+<!--
 <Layout title="Welcome to Single Products">
   <main>
     <h1 class="text-3xl text-center font-bold p-6">Single Product page</h1>
-    <ShowSingleProduct product={productData} client:load />
+   <ShowSingleProduct product={productData} client:load /> 
   </main>
 </Layout>
-<!--
+ -->
 <Layout title="Welcome to Single Products">
   <main>
     <h1 class="text-3xl text-center font-bold p-6">Single Product page</h1>
     <div>Good dog, {slug}!</div>
   </main>
 </Layout>
- -->

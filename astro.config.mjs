@@ -11,7 +11,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   integrations: [vue(), tailwind()],
   site: "http://localhost:4321",
-
+  //output: 'hybrid',
   vite: {
     plugins: [
     

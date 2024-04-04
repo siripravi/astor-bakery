@@ -36,7 +36,7 @@
                       class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
                     >
                       <button >
-                        From B: {{ doubleValue }}
+                       DETAIL
                       </button>
                     </button>
                   </div>
@@ -52,10 +52,5 @@
 
 <script setup>
 
-import { store } from "../../lib/store.js";
-import { useCounterStore } from '../../stores/counterStore';
-
-const store2 = useCounterStore();
-const doubleValue = computed(() => store2.doubleCount)
 defineProps(["categories"]);
 </script>
