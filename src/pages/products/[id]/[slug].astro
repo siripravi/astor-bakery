@@ -5,20 +5,21 @@ import ShowSingleProduct from "../../../components/Products/ShowSingleProduct.vu
 import { getSingleProduct } from "../../../graphql/queries/getSingleProduct";
 
 export const prerender = false;
+const { id,slug } = Astro.params;
 const productData = await getSingleProduct(slug);
 
 export async function getStaticPaths() {
  const paths =  [
-   // {params: {id:'vanilla-cake',slug: '30'}},
-   // {params: {id:'butter-cookies',slug: '29'}},
+  //  {params: {id:'vanilla-cake',slug: '30'}},
+  //  {params: {id:'butter-cookies',slug: '29'}},
    // {params: {id:'three',slug: 'spot'}},
   ]; 
-  //const productData = await getSingleProduct(slug);
-//  const paths = productData.extras.moduleContent.product.map(item => ({ params: { id: item.id , slug:item.slug} }));
+  //const productData = await getSingleProduct(30);
+ // const paths = productData.extras.moduleContent.product.map(item => ({ params: { id: item.id , slug:item.slug} }));
 
   return  paths;
 }
-const { id,slug } = Astro.params;
+
 ---
 <!--
 <Layout title="Welcome to Single Products">

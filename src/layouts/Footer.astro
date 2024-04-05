@@ -1,5 +1,8 @@
 ---
 const todayDate = new Date().getFullYear();
+
+import '../assets/scss/footer.scss';
+
 ---
 <!--
 <div class="container mx-auto mt-24 lg:max-w-[1375px]">
@@ -11,27 +14,48 @@ const todayDate = new Date().getFullYear();
     </div>
   </footer>
 </div>  -->
-<footer class="container mx-auto bg-white py-8 border-t border-gray-400">
-  <div class="container flex px-3 py-8 ">
-      <div class="w-full mx-auto flex flex-wrap">
-          <div class="flex w-full lg:w-1/2 ">
-              <div class="px-3 md:px-0">
-                  <h3 class="font-bold text-gray-900">About</h3>
-                  <p class="py-4">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
-                  </p>
-              </div>
-          </div>
-          <div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
-              <div class="px-3 md:px-0">
-                  <h3 class="font-bold text-gray-900">Social</h3>
-                  <ul class="list-reset items-center pt-3">
-                      <li>
-                          <a class="inline-block no-underline hover:text-black hover:underline py-1" href="#">Add social links</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
+
+
+  <footer>
+    <div class="footer container">
+      <div class="footer__logo">
+        <img src="/images/logo.png" alt="footer logo" />
       </div>
-  </div>
-</footer>
+      <div class="footer__lists">
+        <div class="footer__list">
+          <h6 class="footer__list__title">Categories</h6>
+          <nav>
+            <a href="#">Home</a>
+            <a href="#">Posts</a>
+            <a href="#">Contact</a>
+          </nav>
+        </div>
+        <div class="footer__list">
+          <h6 class="footer__list__title">About</h6>
+          <ul>
+            <li>Geek's Bakery</li>
+            <li>Pham Chi Trung</li>
+            <li>phamchitrung.work@gmail.com</li>
+          </ul>
+        </div>
+        <div class="footer__list">
+          <h6 class="footer__list__title">Social</h6>
+          <div class="footer__list__social">
+            <a target="_blank" href="https://www.facebook.com/trungxi.it">
+              <img src="/icons/facebook.svg" alt="facebook icon" />
+            </a>
+            <a target="_blank" href="https://github.com/TrungXiIT">
+              <img src="/icons/github.svg" alt="github icon" />
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/in/trung-ph%E1%BA%A1m-101b871a2/">
+              <img src="/icons/linkedin.svg" alt="linkedin icon" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid footer__copyright">
+      <p>Copyright © 2021 Pham Chi Trung</p>
+    </div>
+  </footer>
+

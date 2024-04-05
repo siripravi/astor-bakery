@@ -1,3 +1,21 @@
+
+<template>
+  <div class="wrapper">
+    <section class="container category">
+      <h3 class="title">Experience Flavours</h3>
+      <ul class="category__list">
+        <li v-for="category in block.extras.elements.categories" :key="category.id">
+          <a class="category__item"  :href="`/category/${category.id}/${category.slug}`">
+            <img class="category__item-image" :src="category.imageSrc.source" :alt="category.alt" />
+            <h6 class="category__item-name">{{ category.name }}</h6>
+            <p class="category__item-description">{{ category.text }}</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+  </template>
+  <!--
 <template>
   <h3></h3>
   <div v-if="block">
@@ -47,6 +65,7 @@
     </section>
   </div>
 </template>
+-->
 <script>
 export default {
   props: {
@@ -54,3 +73,7 @@ export default {
   },
 };
 </script>
+
+<style>
+@import '../../assets/scss/home.scss';
+</style>
