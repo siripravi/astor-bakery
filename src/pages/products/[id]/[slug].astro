@@ -1,7 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import ShowSingleProduct from "../../../components/Products/ShowSingleProduct.vue";
-
+import { onMounted, ref } from 'vue'
 import { getSingleProduct } from "../../../graphql/queries/getSingleProduct";
 
 export const prerender = false;
@@ -10,8 +10,8 @@ const productData = await getSingleProduct(slug);
 
 export async function getStaticPaths() {
  const paths =  [
-  //  {params: {id:'vanilla-cake',slug: '30'}},
-  //  {params: {id:'butter-cookies',slug: '29'}},
+  //  {params: {id:'vanilla-cake',slug: 'vanilla-cake'}},
+  //  {params: {id:'29',slug: 'butter-cookies'}},
    // {params: {id:'three',slug: 'spot'}},
   ]; 
   //const productData = await getSingleProduct(30);

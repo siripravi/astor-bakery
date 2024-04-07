@@ -1,44 +1,32 @@
 <template>
-   <div v-if="allProducts">
-    <section class="container mx-auto bg-white">
-      <div
-        class="grid gap-2 px-2 pt-2 pb-2 lg:px-0 xl:px-0 md:px-0 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 xs:grid-cols-3"
-      >
-        <template v-for="product in allProducts.dataProvider">
-          <div
-            v-if="product.slug"
-            :key="product.id"
-            class="max-w-md mx-auto rounded-md overflow-hidden shadow-md hover:shadow-lg"
-          >
-           
-              <a :href="'/products/' + product.slug + '/' + product.id">
-                <div class="relative">
-                  <img v-bind:src="product.imageSrc.source" class="w-full" />
-
-                  <div
-                    class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium"
-                  >
-                    Veg
-                  </div>
-                </div>
-                <div class="p-4">
-                  <h3 class="text-lg font-medium mb-2">{{ product.name }}</h3>
-                  <p class="text-gray-600 text-sm mb-4"></p>
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-lg"
-                      >${{ product.price_from }}</span
-                    >
-                    <button
-                      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-                    >
-                      Order Now
-                    </button>
-                  </div>
-                </div>
-              </a>
-          
+  <div class="wrapper">
+    <section class="container sweeties">
+      <h3 class="title">Best Seller</h3>
+      <div class="sweeties__items">
+        <div
+          v-for="product in allProducts.dataProvider"
+          :key="product.id"
+          class="sweeties__item"
+        >
+          <div class="sweeties__item__img">
+            <img
+              v-bind:src="product.imageSrc.source"
+              class="best-seller__item-image"
+            />
           </div>
-        </template>
+          <div class="sweeties__item__name line-clamp-2">
+            <a :href="'/products/' + product.slug + '/' + product.id">{{ product.name }}</a>
+          </div>
+          <div class="sweeties__item__prices">
+            <div class="sweeties__item__price">
+              {{ FormatToVND(product.price_from) }}
+            </div>
+            <div class="sweeties__item__original-price">
+              {{ FormatToVND(product.price_from) }}
+            </div>
+          </div>
+          <ButtonComponent variant="secondary">Add to cart +</ButtonComponent>
+        </div>
       </div>
     </section>
   </div>
@@ -46,7 +34,8 @@
 
 <script setup>
 import { filteredVariantPrice } from "../../utils/functions";
-
+import ButtonComponent from "../UI/ButtonComponent.vue";
+import { FormatToVND } from "../../utils/Formatter";
 defineProps(["allProducts"]);
 
 const productImage = (product) =>
