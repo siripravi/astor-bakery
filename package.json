@@ -9,10 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i && npm run format",
-    "format": "prettier --write \"**/*.{js,jsx,json}\"" ,  
+    "format": "prettier --write \"**/*.{js,jsx,json}\"",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
-   
   },
   "dependencies": {
     "@astrojs/preact": "^3.0.0",
@@ -22,7 +21,10 @@
     "@astrojs/vue": "^4.0.9",
     "@headlessui/vue": "^1.7.19",
     "@nanostores/vue": "^0.7.0",
+    "@popperjs/core": "^2.11.8",
+    "@types/bootstrap": "^5.2.10",
     "astro": "^4.5.9",
+    "astro-bootstrap": "^0.6.2",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "focus-trap": "^7.3.1",

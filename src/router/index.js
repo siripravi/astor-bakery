@@ -1,15 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-
 import PokemonList from "../views/PokemonList.vue";
 import Pokemon from "../views/Pokemon.vue";
 import PokemonDetails from "../views/PokemonDetails.vue";
 import NotFound from "../views/NotFound.vue";
-
 import valid_pokemon from "../data/valid-pokemon.json";
 
 const routes = [
   {
-    path: "/",
+    path: "/cakes",
     name: "PokemonList",
     component: PokemonList,
   },

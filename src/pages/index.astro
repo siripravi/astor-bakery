@@ -22,15 +22,16 @@ const item: CartItemDisplayInfo = {
 };
 
 
-import '../assets/scss/reset.scss'
-import '../assets/scss/base.scss'
+//import '../assets/scss/reset.scss'
+//import '../assets/scss/base.scss'
+//import '../assets/scss/base.scss'
+//import '../assets/scss/base.scss'
+
 ---
 
 <Layout title="Index">
   <main>
-    <div id="app">
-      <router-view />
-    </div>
+   
     <!-- <Hero />  -->
     <HomeSlider client:load />
     <h1 class="text-center text-3xl font-bold p-4">Categories</h1>
@@ -99,15 +100,7 @@ import '../assets/scss/base.scss'
 </form>    
   </main>
 </Layout>
-<script>
-  import { createApp } from 'vue';
-import App from '../App.vue'
-import router from '../router/index.js';
-  export default {
-    name: "App",
-  };
-  createApp(App).use(router).mount('#app')
-  </script>
+
 <style>
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
