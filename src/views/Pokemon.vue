@@ -14,12 +14,10 @@ export default {
 	},
 	mounted() {
 		const pokemon_name = this.$route.params.name;
-
 		axios
 			.get(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`)
 			.then((res) => {
 				const data = res.data;
-
 				axios
 					.get(
 						`https://pokeapi.co/api/v2/pokemon-species/${pokemon_name}`
