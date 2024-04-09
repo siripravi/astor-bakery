@@ -1,21 +1,32 @@
-
 <template>
-  <div class="wrapper">
-    <section class="container category">
-      <h3 class="title">Experience Flavours</h3>
-      <ul class="category__list">
-        <li v-for="category in block.extras.elements.categories" :key="category.id">
-          <a class="category__item"  :href="`/category/${category.id}/${category.slug}`">
-            <img class="category__item-image" :src="category.imageSrc.source" :alt="category.alt" />
-            <h6 class="category__item-name">{{ category.name }}</h6>
+  <div class="row service_main_item_inner">
+    <template
+      v-for="category in block.extras.elements.categories"
+      :key="category.id"
+    >
+      <div class="col-lg-4 col-sm-6">
+        <div class="service_m_item">
+          <a           
+            :href="`/category/${category.id}/${category.slug}`"
+          >
+            <div class="service_img_inner">
+              <img
+                class="rounded-circle"
+                :src="category.imageSrc.source"
+                :alt="category.alt"
+              />
+            </div>
+            <div class="service_text">             
+               <h4>{{ category.name }}</h4>           
+            </div>
             <p class="category__item-description">{{ category.text }}</p>
           </a>
-        </li>
-      </ul>
-    </section>
+        </div>
+      </div>
+    </template>
   </div>
-  </template>
-  <!--
+</template>
+<!--
 <template>
   <h3></h3>
   <div v-if="block">
@@ -74,6 +85,3 @@ export default {
 };
 </script>
 
-<style>
-@import '../../assets/scss/home.scss';
-</style>

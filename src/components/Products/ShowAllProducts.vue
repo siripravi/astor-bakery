@@ -1,21 +1,29 @@
 <template>
-  <section>
-    <div class="flex flex-wrap items-center">
-      <template v-for="singleProduct in allProducts">
-        <template v-for="product in singleProduct">
-          <div
-            v-if="product.slug"
-            :key="product.databaseId"
-            class="flex flex-col mt-6 sm:w1/2 md:w-1/3 lg:1/4 xl:w-1/4"
-          >
-            <a :href="`/products/${product.slug}/${product.databaseId}`">
-              <img
-                id="product-image"
-                class="container mx-auto transition duration-700 ease-in-out transform cursor-pointer lg:w-64 xl:w-64 sm:p-4 hover:scale-95"
-                :alt="product.name"
-                :src="productImage(product)"
-              />
-            </a>
+  <div class="row service_main_item_inner">
+    <template v-for="singleProduct in allProducts">
+      <template v-for="product in singleProduct">
+        <div
+          v-if="product.slug"
+          :key="product.databaseId"
+          class="col-lg-4 col-sm-6"
+        >
+          <div class="service_m_item">
+            <div class="service_img_inner">
+              <a :href="`/products/${product.slug}/${product.databaseId}`">
+                <div class="service_img">
+                  <img
+                    id="product-image"
+                    class="container mx-auto transition duration-700 ease-in-out transform cursor-pointer lg:w-64 xl:w-64 sm:p-4 hover:scale-95"
+                    :alt="product.name"
+                    :src="productImage(product)"
+                  />
+                </div>
+
+                <div class="service_text">
+                  <a href="#"><h4>Valentines Day Cakes</h4></a>
+                </div>
+              </a>
+            </div>
             <div class="flex justify-center pt-3">
               <p class="text-xl font-bold text-center cursor-pointer">
                 {{ product.name }}
@@ -41,10 +49,10 @@
               </p>
             </div>
           </div>
-        </template>
+        </div>
       </template>
-    </div>
-  </section>
+    </template>
+  </div>
 </template>
 
 <script setup>
