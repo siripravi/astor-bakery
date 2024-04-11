@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class="col-lg-3">
-          <Sidebar/>
+       <!--  <Sidebar/>  -->
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@
 import { filteredVariantPrice } from "../../utils/functions";
 import ButtonComponent from "../UI/ButtonComponent.vue";
 import { FormatToVND } from "../../utils/Formatter";
-import Sidebar from '../../layouts/Sidebar';
+
 defineProps(["allProducts"]);
 
 const productImage = (product) =>
